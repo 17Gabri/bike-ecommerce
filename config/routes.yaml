@@ -1,5 +1,17 @@
 controllers:
-    resource:
-        path: ../src/Controller/
-        namespace: App\Controller
-    type: attribute
+  resource:
+    path: ../src/Controller/
+    namespace: App\Controller
+  type: attribute
+
+app_homepage:
+  path: /
+  controller: App\Controller\HomeController::index
+
+product_detail:
+  path: "/product/{id}"
+  controller: App\Controller\ProductController::detail
+
+thank_you:
+  path: /thank-you
+  controller: App\Controller\ThankYouController::index

@@ -1,0 +1,86 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Producto -
+	{{ product.name }}
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<link rel="stylesheet" href="{{ asset('build/css/product.css') }}">
+{% endblock %}
+
+{% block body %}
+	<div class="product-details-container">
+		<div class="product-images">
+			{% for image in product.images %}
+				<img src="{{ asset(image) }}" alt="{{ product.name }}" onclick="showImage('{{ asset(image) }}')">
+			{% endfor %}
+		</div>
+		<div class="expand-images-btn" onclick="showImages()">
+			<i class="fas fa-chevron-down"></i>
+		</div>
+		<div class="selected-product-image" data-images="{{ product.images | json_encode | e }}">
+			<img id="mainImage" src="{{ asset(product.images[0]) }}" alt="{{ product.name }}">
+			<button class="prev" onclick="changeImage(-1)">&#10094;</button>
+			<button class="next" onclick="changeImage(1)">&#10095;</button>
+		</div>
+		<div class="product-details">
+			<div class="details-container">
+				<div class="product-header">
+					<div class="favorites">
+						<i class="heart-icon far fa-heart" onclick="setFavorite()"></i>
+					</div>
+					<div class="ranking">
+						<div class="stars">
+							{% for i in 1..5 %}
+								{% if i <= product.reviews.rating %}
+									<i class="fas fa-star star"></i>
+								{% else %}
+									<i class="far fa-star star"></i>
+								{% endif %}
+							{% endfor %}
+						</div>
+						<span class="opinions-number">{{ product.reviews.total_reviews }}
+							opiniones</span>
+					</div>
+				</div>
+				<h2>{{ product.name }}</h2>
+				<p class="product-description">{{ product.description }}</p>
+				<div class="buy-product">
+					<p class="product-price">PVP:
+						{{ product.price }}€</p>
+					<button class="buy-button" onclick="comprar({{product.id}})" data-thank-you-url="{{ path('thank_you') }}">
+						<i class="fas fa-shopping-cart"></i>
+						<span>Añadir al carrito</span>
+					</button>
+				</div>
+				<div class="show-options">
+					<i class="show-options-icon fas fa-chevron-down" onclick="showPaymentOptions()"></i>
+				</div>
+				<div class="payment-options">
+					{% set installmentAmount = product.price / 12 %}
+					<p>
+						<i class="fas fa-coins"></i>Fracciona tu pago hasta en 12 meses (12 cuotas de
+						{{ installmentAmount | number_format(2) }}€).</p>
+					<p>
+						<i class="fas fa-dolly"></i>Envío gratis en 2 días.</p>
+				</div>
+			</div>
+			<div class="related-products">
+				<h2>Productos relacionados</h2>
+				<div class="product-navigation">
+					{% for relatedProduct in relatedProducts %}
+						<div class="related-product">
+							<a href="{{ path('product_detail', {'id': relatedProduct.id}) }}" onclick="sendRelatedProductEvent({{relatedProduct.id}})">
+								<img src="{{ asset(relatedProduct.images[0]) }}" alt="{{ relatedProduct.name }}">
+								<h3>{{ relatedProduct.name }}</h3>
+								<p>Precio:
+									{{ relatedProduct.price }}€</p>
+							</a>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

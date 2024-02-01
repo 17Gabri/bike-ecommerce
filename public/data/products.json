@@ -1,0 +1,61 @@
+[
+    {
+        "id": 1,
+        "name": "Bicicleta de montaña",
+        "price": 500,
+        "description": "Una bicicleta resistente para el ciclismo de montaña.",
+        "images": [
+            "/images/bici_1/bici1-1.webp",
+            "/images/bici_1/bici1-2.webp",
+            "/images/bici_1/bici1-3.webp",
+            "/images/bici_1/bici1-4.webp",
+            "/images/bici_1/bici1-5.webp",
+            "/images/bici_1/bici1-6.webp",
+            "/images/bici_1/bici1-7.webp",
+            "/images/bici_1/bici1-8.webp"
+        ],
+        "reviews": {
+            "rating": 4.5,
+            "total_reviews": 50
+        }
+    },
+    {
+        "id": 2,
+        "name": "Bicicleta de carretera",
+        "price": 700,
+        "description": "Una bicicleta rápida y ligera para el ciclismo de carretera.",
+        "images": [
+            "/images/bici_2/bici2-1.webp",
+            "/images/bici_2/bici2-2.webp",
+            "/images/bici_2/bici2-3.webp",
+            "/images/bici_2/bici2-4.webp",
+            "/images/bici_2/bici2-5.webp",
+            "/images/bici_2/bici2-6.webp",
+            "/images/bici_2/bici2-7.webp",
+            "/images/bici_2/bici2-8.webp",
+            "/images/bici_2/bici2-9.webp"
+        ],
+        "reviews": {
+            "rating": 3.5,
+            "total_reviews": 73
+        }
+    },
+    {
+        "id": 3,
+        "name": "Bicicleta urbana",
+        "price": 400,
+        "description": "Una bicicleta cómoda y versátil para moverse por la ciudad.",
+        "images": [
+            "/images/bici_3/bici3-1.webp",
+            "/images/bici_3/bici3-2.webp",
+            "/images/bici_3/bici3-3.webp",
+            "/images/bici_3/bici3-4.webp",
+            "/images/bici_3/bici3-5.webp",
+            "/images/bici_3/bici3-6.webp"
+        ],
+        "reviews": {
+            "rating": 4,
+            "total_reviews": 66
+        }
+    }
+]
