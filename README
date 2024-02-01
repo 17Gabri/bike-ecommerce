@@ -1,0 +1,30 @@
+## Configurando proyecto
+
+Sigue los siguientes pasos:
+
+1. Clona el repositorio: `git clone https://github.com/17Gabri/bike-ecommerce`
+2. Instala las dependencias: `npm install`
+3. Arranca el servidor y compila lo necesario: `npm run dev`
+4. Ve a `http://localhost:8000/`
+
+## Lanzando End-to-End (E2E) Tests
+
+Para lanzar los tests E2E haz lo siguiente:
+
+1. Asegúrate de tener el servidor levantado.
+2. Lanza `npx cypress run --spec "cypress/integration/buy_product_spec.cy` para ejecutar específicamente el test e2e.
+3. Run `npx cypress open` para lanzarlo a través de la interfaz visual.
+
+## TODO y siguientes pasos
+
+1. Solucionar problema con media-queries: Por algún motivo que no he conseguido averiguar todavía alguno de los cambios que he hecho ha hecho que no detecte bien los media-queries y por lo tanto en mobile no se vea como debe. La única forma de poder visualizarlo correctamente es desde Firefox, seleccionar cualquier dispositivo móvil en el emulador y deshabilitar el botón de la barra superior "Activar simulación de toque". Esto me ha empezado a pasar a última hora y he ido revirtiendo cambios sin mucho éxito.
+
+2. He añadido eventos tanto al finalizar una compra, como al cambiar de imagen en la página de producto tanto en mobile como en desktop así como al navegar a un producto desde la home. Webhook.site me daba problemas de CORS por lo que he utilizado otra herramienta (PipeDream) que permite verlo de forma bastante visual, parece que la versión gratuita solo permite 25 llamadas al día pero creo que será suficiente. Esto podréis verlo accediendo al proyecto desde `https://pipedream.com/@17gabri/invite?token=9b6cfd4747a1e95316134f886669fabb`. Si no se pudiera vemos de solucionarlo.
+
+3. Añadir certificado SSL para utilizar HTTPS en lugar de HTTP.
+
+4. Añadir tanto un login como un proceso de checkout completo, tanto como usuario registrado como con cuenta de invitado.
+
+5. Añadir tracking a través de Google Analytics (GA4).
+
+6. Actualizar los tests e2e conforme a los nuevos flujos que se vayan creando.
